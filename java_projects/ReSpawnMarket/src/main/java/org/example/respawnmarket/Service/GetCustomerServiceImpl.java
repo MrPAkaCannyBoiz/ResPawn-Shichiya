@@ -1,6 +1,5 @@
 package org.example.respawnmarket.Service;
 
-import com.respawnmarket.*;
 import org.example.respawnmarket.repositories.AddressRepository;
 import org.example.respawnmarket.repositories.CustomerAddressRepository;
 import org.example.respawnmarket.repositories.CustomerRepository;
@@ -12,7 +11,7 @@ import java.util.List;
 
 
 @Service
-public class GetCustomerServiceImpl extends GetCustomerServiceGrpc.GetCustomerServiceImplBase
+public class GetCustomerServiceImpl extends com.respawnmarket.GetCustomerServiceGrpc.GetCustomerServiceImplBase
 {
     private CustomerRepository customerRepository;
     private AddressRepository addressRepository;
@@ -28,12 +27,12 @@ public class GetCustomerServiceImpl extends GetCustomerServiceGrpc.GetCustomerSe
     }
 
     // use case for getting customer info (admin only)
-    public void getCustomer(GetCustomerRequest request,
-                                io.grpc.stub.StreamObserver<GetCustomerResponse> responseObserver)
+    public void getCustomer(com.respawnmarket.GetCustomerRequest request,
+                            io.grpc.stub.StreamObserver<com.respawnmarket.GetCustomerResponse> responseObserver)
     {
         var givenCustomer = customerRepository.findById(request.getCustomerId()).orElse(null);
         assert givenCustomer != null;
-        Customer customerDto = Customer.newBuilder()
+        com.respawnmarket.Customer customerDto = com.respawnmarket.Customer.newBuilder()
                 .setId(givenCustomer.getId())
                 .setFirstName(givenCustomer.getFirstName())
                 .setLastName(givenCustomer.getLastName())
@@ -41,9 +40,9 @@ public class GetCustomerServiceImpl extends GetCustomerServiceGrpc.GetCustomerSe
                 .setPhoneNumber(givenCustomer.getPhoneNumber())
                 .build();
 
-        List<Address> addresses = addressRepository.findAddressByCustomerId(request.getCustomerId())
+        List<com.respawnmarket.Address> addresses = addressRepository.findAddressByCustomerId(request.getCustomerId())
                 .stream()
-                .map(addressEntity -> Address.newBuilder()
+                .map(addressEntity -> com.respawnmarket.Address.newBuilder()
                         .setId(addressEntity.getId())
                         .setStreetName(addressEntity.getStreetName())
                         .setSecondaryUnit(addressEntity.getSecondaryUnit())
@@ -51,15 +50,15 @@ public class GetCustomerServiceImpl extends GetCustomerServiceGrpc.GetCustomerSe
                         .build())
                 .toList();
         
-        List<Postal> postals = postalRepository.findByCustomerId(request.getCustomerId())
+        List<com.respawnmarket.Postal> postals = postalRepository.findByCustomerId(request.getCustomerId())
                 .stream()
-                .map(postalEntity -> Postal.newBuilder()
+                .map(postalEntity -> com.respawnmarket.Postal.newBuilder()
                         .setPostalCode(postalEntity.getPostalCode())
                         .setCity(postalEntity.getCity())
                         .build())
                 .toList();
 
-        GetCustomerResponse response = GetCustomerResponse.newBuilder()
+        com.respawnmarket.GetCustomerResponse response = com.respawnmarket.GetCustomerResponse.newBuilder()
                 .setCustomer(customerDto)
                 .addAllAddresses(addresses)
                 .addAllPostals(postals)

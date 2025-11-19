@@ -221,4 +221,16 @@ service GetProductService
   rpc GetAllProducts (GetAllProductsRequest) returns (GetAllProductsResponse);
 }
 
+message LoginResellerRequest {
+  string username = 1;
+  string password = 2;
+}
 
+message LoginResellerResponse {
+  int32 id = 1;
+  string username = 2;
+}
+
+service ResPawnMarketService {
+  rpc LoginReseller(LoginResellerRequest) returns (LoginResellerResponse);
+}
