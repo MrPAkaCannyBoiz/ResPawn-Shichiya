@@ -231,6 +231,6 @@ message LoginResellerResponse {
   string username = 2;
 }
 
-service ResPawnMarketService {
+service LoginResellerService {
   rpc LoginReseller(LoginResellerRequest) returns (LoginResellerResponse);
 }
