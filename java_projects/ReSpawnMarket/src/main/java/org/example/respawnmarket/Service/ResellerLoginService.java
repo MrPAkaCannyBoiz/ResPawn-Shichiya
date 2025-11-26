@@ -25,7 +25,7 @@ public class ResellerLoginService
     public ResellerLoginResponseDto login(ResellerLoginRequestDto request) {
         var resellerOpt = resellerRepository.findByUsername(request.getUsername());
 
-        if (!resellerOpt.isPresent()) {
+        if (resellerOpt.isEmpty()) {
             throw new RuntimeException("Invalid username or password");
         }
 
@@ -37,6 +37,8 @@ public class ResellerLoginService
         }
 
         // Login ok -> id + username
-        return new ResellerLoginResponseDto(reseller.getId(), reseller.getUsername());
+        return new ResellerLoginResponseDto(
+                reseller.getId(),
+                reseller.getUsername());
     }
 }

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1f12e09-a32f-4d96-a446-5e233f54bfa2" name="Changes" comment="I tried, so later today or tomorrow I will continue with Cristina" />
+    <list default="true" id="c1f12e09-a32f-4d96-a446-5e233f54bfa2" name="Changes" comment="I tried, so later today or tomorrow I will continue with Cristina">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/Service/ResellerLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/Service/ResellerLoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/entities/ResellerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/entities/ResellerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/repositories/ResellerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_projects/ReSpawnMarket/src/main/java/org/example/respawnmarket/repositories/ResellerRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +37,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "reseller__login",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Karina/Documents/GitHub_Karina/ResPawnMarket",
