@@ -3,6 +3,7 @@ package org.example.respawnmarket.Service;
 import com.respawnmarket.LoginResellerRequest;
 import com.respawnmarket.LoginResellerResponse;
 import com.respawnmarket.LoginResellerServiceGrpc;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import org.example.respawnmarket.dtos.ResellerLoginRequestDto;
 import org.example.respawnmarket.dtos.ResellerLoginResponseDto;
@@ -39,7 +40,12 @@ public class LoginResellerGrpcService extends LoginResellerServiceGrpc.LoginRese
             responseObserver.onCompleted();
         }
         catch (Exception e) {
-            responseObserver.onError(e);
+            responseObserver.onError(
+                    Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException()
+            );
         }
+
     }
 }
