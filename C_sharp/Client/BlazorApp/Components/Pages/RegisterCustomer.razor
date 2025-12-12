@@ -128,8 +128,8 @@
                 return;
             }
 
-            var created = await registerCustomerService.AddCustomerAsync(form);
             success = true;
+            var created = await registerCustomerService.AddCustomerAsync(form);
             message = $"Customer '{created.FirstName} {created.LastName}' created successfully!";
 
             form = new CreateCustomerDto
